@@ -1,0 +1,235 @@
+/*
+Theme Name:     Woodvale 2017
+Theme URI:      http://chrisbishop.me.uk/resources/
+Author:         Chris Bishop
+Description:    A 'blank canvas' with Bootstrap for developing WordPress themes. 
+Author URI:     http://chrisbishop.me.uk/
+Version:        0.2.0
+License:		Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/. Feel free to make any changes.
+Text Domain:    blankcanvas
+*/
+
+/**
+ * Global
+ * ----------------------------------------------------------------------------
+ */
+ 
+body {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif, sansserif;
+	/*The weights are 300 (light), 400 (normal), 600 (semibold), and 700 (bold) and the only acceptable CSS keyword is "normal". */
+	text-rendering: optimizeLegibility;
+	color: #444;
+	font-size: 18px;
+	line-height: 1.6;
+}
+html, button, input, select, textarea {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif, sansserif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+a {
+	color: #337ab7;
+}
+a:hover, a:focus {
+	color: #3b94d9;
+}
+.entry-content a {
+	text-decoration: underline;
+}
+.entry-content a:hover, .entry-content a:focus {
+	text-decoration: none;
+}
+
+/**
+ * Hyphenation
+ * ----------------------------------------------------------------------------
+ */
+
+h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	word-break: keep-all;
+}
+.site-content article {
+	word-wrap: normal;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	hyphens: none;
+}
+.widget-area .widget {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	hyphens: none;
+	word-wrap: normal;
+}
+/**
+ * Nav
+ * ----------------------------------------------------------------------------
+ */
+
+.navbar {
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 500;
+	border-radius: 0;
+	border: none;
+	background-color: #fff;
+    box-shadow: 0px 5px 14px #444;
+}
+.navbar-nav>li>a {
+	padding-bottom: 15.5px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+	border-bottom: solid 4px #fff;
+}
+.navbar-default .navbar-brand {
+    font-weight: 700;
+    color: #000;
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: #3b94d9;
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+	border-bottom: solid 4px #3b94d9;
+}
+.navbar-default .navbar-nav > li.current-menu-item > a {
+	border-bottom: solid 4px #3b94d9;
+}
+
+/**
+ * Header
+ * ----------------------------------------------------------------------------
+ */
+
+
+
+/**
+ * Footer
+ * ----------------------------------------------------------------------------
+ */
+ 
+footer {
+	padding: 1em 0;
+	background-color: #e4eaea;
+}
+footer ul {
+	list-style-type: none;
+	padding: 0;
+}
+footer .bc-info {
+	padding: 1em;
+}
+
+/**
+ * Home
+ * ----------------------------------------------------------------------------
+ */
+
+.bc-banner {
+	background: url('img/bg.jpg') #e4eaea center center;
+	background-size: cover;
+	min-height: 180px;
+}
+.banner-title {
+	margin: 2em 0 3em;
+	padding: 0.5em 1em;
+	background: rgba(255,255,255,0.8);
+	border-radius: 3px;
+}
+.cat-nav {
+	margin-bottom: 1em;
+}
+.cat-nav .btn {
+	margin-bottom: 0.5em;
+}
+.loop-wrap article {
+    margin-bottom: 2em;
+}
+.loop-wrap .entry-content-loop {
+	padding: 1em;
+	background-color: #e4eaea;
+}
+.loop-wrap .entry-thumbnail {
+	max-height: 200px;
+	overflow: hidden;
+}
+.loop-wrap .btn-default {
+    color: #95a5a6;
+    background-color: #fff;
+}
+.pager li>a, .pager li>span {
+	background-color: #95a5a6;
+	border-radius: 3px;
+	border: none;
+	color: #fff;
+}
+.pager li>a:hover,
+.pager li>a:focus,
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open>.dropdown-toggle.btn-default {
+    color: #fff;
+    text-decoration: none;
+	background-color: #3b94d9;
+}
+
+
+/**
+ * Page & Posts
+ * ----------------------------------------------------------------------------
+ */
+
+.bc-content {
+    padding: 2em 0;
+}
+
+ /**
+ * Images
+ * ----------------------------------------------------------------------------
+ */
+
+.wp-caption.aligncenter, img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.entry-content img.alignright, .entry-content .wp-caption.alignright {
+  margin-right: 0px;
+  float: right;
+}
+.entry-content img.alignnone  {
+    margin: 1.6em 0;
+}
+.wp-caption.alignright, img.alignright {
+	margin: 5px 0 5px 20px;
+}
+.entry-content img.alignleft, .entry-content .wp-caption.alignleft {
+  margin-left: 0px;
+  float: left;
+}
+.wp-caption.alignleft, img.alignleft {
+	margin: 5px 20px 5px 0px;
+}
+.wp-caption .wp-caption-text, .entry-caption, .gallery-caption {
+  color: #220e10;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+    padding: 1em;
+    background: #eee;
+}
+iframe {
+    margin: 1.6em 0;
+}
