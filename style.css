@@ -76,11 +76,12 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 	font-weight: 500;
 	border-radius: 0;
 	border: none;
-	background-color: #fff;
-    box-shadow: 0px 5px 14px #444;
 }
 .navbar-nav>li>a {
 	padding-bottom: 15.5px;
+}
+.navbar-default {
+	background-color: transparent;
 }
 .navbar-default .navbar-nav > li > a {
     color: #000;
@@ -108,8 +109,12 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
  * Header
  * ----------------------------------------------------------------------------
  */
-
-
+.branding a {
+	padding: 1em 1em 1em 0;
+}
+.branding a img {
+	max-height: 90px;
+}
 
 /**
  * Footer
@@ -136,7 +141,7 @@ footer .bc-info {
 .bc-banner {
 	background: url('img/bg.jpg') #e4eaea center center;
 	background-size: cover;
-	min-height: 180px;
+	min-height: 360px;
 }
 .banner-title {
 	margin: 2em 0 3em;
@@ -189,7 +194,7 @@ footer .bc-info {
  * ----------------------------------------------------------------------------
  */
 
-.bc-content {
+.content {
     padding: 2em 0;
 }
 
