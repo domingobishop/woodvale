@@ -18,12 +18,10 @@ body {
 	font-family: "Open Sans", Helvetica, Arial, sans-serif, sansserif;
 	/*The weights are 300 (light), 400 (normal), 600 (semibold), and 700 (bold) and the only acceptable CSS keyword is "normal". */
 	text-rendering: optimizeLegibility;
-	color: #444;
+	color: #222;
 	font-size: 18px;
 	line-height: 1.6;
-}
-html, button, input, select, textarea {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif, sansserif;
+    background-color: #f1eee5;
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
@@ -85,7 +83,6 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 }
 .navbar-default .navbar-nav > li > a {
     color: #000;
-	border-bottom: solid 4px #fff;
 }
 .navbar-default .navbar-brand {
     font-weight: 700;
@@ -99,21 +96,25 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 }
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-	border-bottom: solid 4px #3b94d9;
+
 }
 .navbar-default .navbar-nav > li.current-menu-item > a {
-	border-bottom: solid 4px #3b94d9;
+
 }
 
 /**
  * Header
  * ----------------------------------------------------------------------------
  */
-.branding a {
-	padding: 1em 1em 1em 0;
+.branding {
+	padding: 1em 0;
 }
-.branding a img {
+.branding .logo a img {
 	max-height: 90px;
+}
+.branding .contact img {
+    width: 36px;
+    height: auto;
 }
 
 /**

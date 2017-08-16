@@ -26,8 +26,11 @@
                         <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-md-4">
-
+                <div class="col-md-4 text-right contact">
+                    <p>
+                        <a href="https://www.facebook.com/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
+                        <a href="https://" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                    </p>
                 </div>
             </div>
         </div>
