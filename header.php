@@ -28,8 +28,11 @@
                 </div>
                 <div class="col-md-4 text-right contact">
                     <p>
-                        <a href="https://www.facebook.com/" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
-                        <a href="https://" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                        <a href="<?php echo get_option('home_facebook'); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
+                        <a href="<?php echo get_option('home_instagram'); ?> target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                    </p>
+                    <p>
+                        <?php echo get_option('home_contact'); ?>
                     </p>
                 </div>
             </div>

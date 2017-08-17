@@ -110,7 +110,7 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 	padding: 1em 0;
 }
 .branding .logo a img {
-	max-height: 90px;
+	max-height: 100px;
 }
 .branding .contact img {
     width: 36px;
@@ -141,6 +141,11 @@ footer .bc-info {
 
 .bc-banner {
 	background: url('img/bg.jpg') #e4eaea center center;
+	background-size: cover;
+	min-height: 360px;
+}
+.home-footer-banner {
+	background: url('img/home-footer.jpg') #e4eaea center center;
 	background-size: cover;
 	min-height: 360px;
 }
