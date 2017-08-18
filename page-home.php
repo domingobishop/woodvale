@@ -8,9 +8,9 @@ get_header(); ?>
     <?php while (have_posts()) : the_post(); ?>
     <?php if ( has_post_thumbnail() ) {
         $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-        <div class="bc-banner" role="banner" style="background-image: url(<?php echo $thumbnail_src[0]; ?>);">
+        <div class="banner" role="banner" style="background-image: url(<?php echo $thumbnail_src[0]; ?>);">
     <?php } else { ?>
-        <div class="bc-banner" role="banner">
+        <div class="banner" role="banner">
     <?php } ?>
         <div class="container-fluid">
             <div class="row">
@@ -41,12 +41,12 @@ get_header(); ?>
                 <div class="row promo-area">
                     <?php for ( $i=1 ; $i<=3 ; $i++ ) { ?>
                     <div class="col-md-4">
-                        <a href="<?php echo get_option('promo_url_'.$i); ?>">
+                        <a href="<?php echo esc_attr(get_option('promo_url_'.$i)); ?>">
                             <div class="promo-img">
-                                <img src="<?php echo get_option('promo_img_'.$i); ?>" class="img-responsive img-circle">
+                                <img src="<?php echo esc_attr(get_option('promo_img_'.$i)); ?>" class="img-responsive img-circle">
                             </div>
                             <div class="promo-text text-center">
-                                <h3><?php echo get_option('promo_txt_'.$i); ?></h3>
+                                <h3><?php echo esc_attr(get_option('promo_txt_'.$i)); ?></h3>
                             </div>
                         </a>
                     </div>

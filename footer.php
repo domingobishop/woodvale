@@ -12,10 +12,10 @@
                     </div>
                 </div>
                 <p>
-                    <?php echo get_option('footer_address_1'); ?><br>
-                    <?php echo get_option('footer_address_2'); ?><br>
-                    <a href="tel:<?php echo get_option('footer_contact'); ?>"><?php echo get_option('footer_contact'); ?></a><br>
-                    <a href="mailto:<?php echo get_option('footer_email'); ?>"><?php echo get_option('footer_email'); ?></a>
+                    <?php echo esc_attr(get_option('footer_address_1')); ?><br>
+                    <?php echo esc_attr(get_option('footer_address_2')); ?><br>
+                    <a href="tel:<?php echo esc_attr(get_option('footer_contact')); ?>"><?php echo esc_attr(get_option('footer_contact')); ?></a><br>
+                    <a href="mailto:<?php echo esc_attr(get_option('footer_email')); ?>"><?php echo esc_attr(get_option('footer_email')); ?></a>
                 </p>
                 <p>
                     Copyright © <?php echo date("Y"); ?> Woodvale Vintners<br>

@@ -26,6 +26,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
+h1, h2, h3  {
+	margin-top: 1.6em;
+	margin-bottom: 1.2em;
+}
+p {
+	margin: 0 0 1.2em;
+}
 a {
 	color: #337ab7;
 }
@@ -139,7 +146,7 @@ footer .bc-info {
  * ----------------------------------------------------------------------------
  */
 
-.bc-banner {
+.banner {
 	background: url('img/bg.jpg') #e4eaea center center;
 	background-size: cover;
 	min-height: 360px;
