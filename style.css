@@ -149,17 +149,11 @@ footer .bc-info {
 	background-size: cover;
 	min-height: 360px;
 }
-.banner-title {
-	margin: 2em 0 3em;
-	padding: 0.5em 1em;
-	background: rgba(255,255,255,0.8);
-	border-radius: 3px;
+.promo-area {
+	padding: 1.6em 0;
 }
-.cat-nav {
-	margin-bottom: 1em;
-}
-.cat-nav .btn {
-	margin-bottom: 0.5em;
+.promo-img {
+	padding: 1.3em;
 }
 .loop-wrap article {
     margin-bottom: 2em;

@@ -24,7 +24,7 @@ get_header(); ?>
         <div id="content" class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-md-8 col-md-offset-2">
                             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                 <div class="entry-header sr-only">
                                     <h1>
@@ -37,6 +37,20 @@ get_header(); ?>
                             </article>
                         <?php endwhile; ?>
                     </div>
+                </div>
+                <div class="row promo-area">
+                    <?php for ( $i=1 ; $i<=3 ; $i++ ) { ?>
+                    <div class="col-md-4">
+                        <a href="<?php echo get_option('promo_url_'.$i); ?>">
+                            <div class="promo-img">
+                                <img src="<?php echo get_option('promo_img_'.$i); ?>" class="img-responsive img-circle">
+                            </div>
+                            <div class="promo-text text-center">
+                                <h3><?php echo get_option('promo_txt_'.$i); ?></h3>
+                            </div>
+                        </a>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

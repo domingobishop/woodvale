@@ -20,13 +20,13 @@
 
         <div class="branding">
             <div class="container">
-                <div class="col-md-8 logo">
+                <div class="col-sm-6 logo">
                     <a href="<?php bloginfo('siteurl'); ?>/"
                        title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" class="img-responsive">
                     </a>
                 </div>
-                <div class="col-md-4 text-right contact">
+                <div class="col-sm-6 text-right contact">
                     <p>
                         <a href="<?php echo get_option('home_facebook'); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
                         <a href="<?php echo get_option('home_instagram'); ?> target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
