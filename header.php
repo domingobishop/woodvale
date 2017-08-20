@@ -28,12 +28,12 @@
                 </div>
                 <div class="col-sm-6 text-right contact">
                     <p>
-                        <a href="<?php echo esc_attr(get_option('home_facebook')); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
-                        <a href="<?php echo esc_attr(get_option('home_instagram')); ?> target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                        <a href="<?php echo esc_attr(get_option('wood_facebook')); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
+                        <a href="<?php echo esc_attr(get_option('wood_instagram')); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
                     </p>
-                    <p>
-                        <?php echo esc_attr(get_option('home_contact')); ?>
-                    </p>
+                    <h3>
+                        <a href="tel:<?php echo esc_attr(get_option('wood_tel')); ?>"><?php echo esc_attr(get_option('wood_tel')); ?></a>
+                    </h3>
                 </div>
             </div>
         </div>

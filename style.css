@@ -15,15 +15,16 @@ Text Domain:    blankcanvas
  */
  
 body {
-	font-family: "Open Sans", Helvetica, Arial, sans-serif, sansserif;
-	/*The weights are 300 (light), 400 (normal), 600 (semibold), and 700 (bold) and the only acceptable CSS keyword is "normal". */
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
 	text-rendering: optimizeLegibility;
 	color: #222;
 	font-size: 18px;
 	line-height: 1.6;
-    background-color: #f1eee5;
+	background: url('img/page-bg.gif') #f1eee5;
 }
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Slab', serif;
     font-weight: 700;
 }
 h1, h2, h3  {
@@ -122,6 +123,9 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 .branding .contact img {
     width: 36px;
     height: auto;
+}
+.branding h3 {
+	margin: 0;
 }
 
 /**

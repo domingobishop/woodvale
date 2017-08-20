@@ -12,12 +12,12 @@ function home_settings() {
 }
 
 function home_settings_data() {
-    register_setting('home_settings_group', 'home_facebook');
-    register_setting('home_settings_group', 'home_instagram');
-    register_setting('home_settings_group', 'footer_address_1');
-    register_setting('home_settings_group', 'footer_address_2');
-    register_setting('home_settings_group', 'footer_contact');
-    register_setting('home_settings_group', 'footer_email');
+    register_setting('home_settings_group', 'wood_facebook');
+    register_setting('home_settings_group', 'wood_instagram');
+    register_setting('home_settings_group', 'wood_address_1');
+    register_setting('home_settings_group', 'wood_address_2');
+    register_setting('home_settings_group', 'wood_tel');
+    register_setting('home_settings_group', 'wood_email');
 
     register_setting('home_settings_group', 'facebook_widget');
 
@@ -39,18 +39,30 @@ function home_settings_page()
             <?php settings_fields( 'home_settings_group' ); ?>
             <?php do_settings_sections( 'home_settings_group' ); ?>
             <table class="form-table">
-                <h3>Page header</h3>
+                <h3>Woodvale details</h3>
                 <tr valign="top">
-                    <th scope="row"><label for="home_facebook">Facebook</label></th>
-                    <td><input type="text" name="home_facebook" value="<?php echo esc_attr( get_option('home_facebook') ); ?>" /></td>
+                    <th scope="row"><label for="wood_facebook">Facebook</label></th>
+                    <td><input type="text" name="wood_facebook" value="<?php echo esc_attr( get_option('wood_facebook') ); ?>" /></td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row"><label for="home_instagram">Instagram</label></th>
-                    <td><input type="text" name="home_instagram" value="<?php echo esc_attr( get_option('home_instagram') ); ?>" /></td>
+                    <th scope="row"><label for="wood_instagram">Instagram</label></th>
+                    <td><input type="text" name="wood_instagram" value="<?php echo esc_attr( get_option('wood_instagram') ); ?>" /></td>
                 </tr>
                 <tr valign="top">
-                    <th scope="row"><label for="home_contact">Contact number</label></th>
-                    <td><input type="text" name="home_contact" value="<?php echo esc_attr( get_option('home_contact') ); ?>" /></td>
+                    <th scope="row"><label for="wood_tel">Contact number</label></th>
+                    <td><input type="text" name="wood_tel" value="<?php echo esc_attr( get_option('wood_tel') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="wood_address_1">Address line 1</label></th>
+                    <td><input type="text" name="wood_address_1" value="<?php echo esc_attr( get_option('wood_address_1') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="wood_address_2">Address line 2</label></th>
+                    <td><input type="text" name="wood_address_2" value="<?php echo esc_attr( get_option('wood_address_2') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="wood_email">Email</label></th>
+                    <td><input type="text" name="wood_email" value="<?php echo esc_attr( get_option('wood_email') ); ?>" /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
@@ -74,26 +86,6 @@ function home_settings_page()
                     <td><input type="text" name="promo_url_<?php echo $i; ?>" value="<?php echo esc_attr( get_option('promo_url_'.$i) ); ?>" /></td>
                 </tr>
                 <?php } ?>
-            </table>
-            <?php submit_button(); ?>
-            <table class="form-table">
-                <h3>Page footer</h3>
-                <tr valign="top">
-                    <th scope="row"><label for="footer_address_1">Address line 1</label></th>
-                    <td><input type="text" name="footer_address_1" value="<?php echo esc_attr( get_option('footer_address_1') ); ?>" /></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row"><label for="footer_address_2">Address line 2</label></th>
-                    <td><input type="text" name="footer_address_2" value="<?php echo esc_attr( get_option('footer_address_2') ); ?>" /></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row"><label for="footer_contact">Contact number</label></th>
-                    <td><input type="text" name="footer_contact" value="<?php echo esc_attr( get_option('footer_contact') ); ?>" /></td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row"><label for="footer_email">Contact number</label></th>
-                    <td><input type="text" name="footer_email" value="<?php echo esc_attr( get_option('footer_email') ); ?>" /></td>
-                </tr>
             </table>
             <?php submit_button(); ?>
             <table class="form-table">
