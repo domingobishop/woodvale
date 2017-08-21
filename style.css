@@ -208,6 +208,12 @@ footer .bc-info {
 .content {
     padding: 2em 0;
 }
+.page-of-posts article {
+	margin-bottom: 2em;
+}
+.page-of-posts h3 {
+	margin: 0;
+}
 
  /**
  * Images
