@@ -33,10 +33,11 @@ get_header(); ?>
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
                             <article id="post-<?php the_ID(); ?>">
-                                <h3 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
+                                <h3 class="entry-title">
+                                    <a href="<?php the_permalink(); ?>" rel="bookmark">
                                         <?php the_title(); ?>
-                                    </a></h3>
-                                <small><?php the_date('F j, Y'); ?></small>
+                                    </a>
+                                </h3>
                                 <div class="entry-summary">
                                     <?php echo excerpt(21); ?>
                                 </div>
