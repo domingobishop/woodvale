@@ -71,3 +71,16 @@ function woo_awards_product_tab_content() {
     echo '<p>Here\'s your new product tab.</p>';
 
 }
+
+add_action( 'init', 'bottle_thumbnail' );
+
+function bottle_thumbnail() {
+    add_filter('woocommerce_placeholder_img_src', 'bottle_placeholder_img_src');
+
+    function bottle_placeholder_img_src( $src ) {
+        $dir = get_template_directory_uri();
+        $src = $dir . '/img/bottle-thumb.gif';
+
+        return $src;
+    }
+}
