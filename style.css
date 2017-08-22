@@ -132,13 +132,11 @@ footer .bc-info {
     min-height: 420px;
     max-height: 420px;
     overflow: hidden;
-    position: relative;
 }
 .banner img {
     width: 100%;
+    min-width: 100%;
     height: auto;
-
-
 }
 .home-footer-banner {
 	background: url('img/home-footer.jpg') #e4eaea center center;
