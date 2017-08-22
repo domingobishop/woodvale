@@ -186,7 +186,7 @@ footer .bc-info {
 	padding: 0;
 }
 .pager li>a, .pager li>span {
-	background-color: #95a5a6;
+	background-color: #444;
 	border-radius: 3px;
 	border: none;
 	color: #fff;

@@ -5,7 +5,6 @@
  */
 get_header(); ?>
 
-
 <?php while (have_posts()) : the_post(); ?>
     <main id="main" class="main page-of-posts" role="main">
         <div id="content" class="content">
@@ -20,7 +19,8 @@ get_header(); ?>
                             </div>
                         </article>
                     <?php endwhile; ?>
-                    <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                    <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args = array(
                         'posts_per_page' => get_option('posts_per_page'),
                         'paged' => $paged,
@@ -29,7 +29,8 @@ get_header(); ?>
                         'orderby' => 'publish_date',
                         'order' => 'DESC'
                     );
-                    query_posts($args); ?>
+                    query_posts($args);
+                    ?>
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
                             <article id="post-<?php the_ID(); ?>">
