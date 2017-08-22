@@ -7,6 +7,7 @@
 remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 add_action( 'after_setup_theme', 'woocommerce_support' );
 
@@ -48,4 +49,25 @@ add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
     $tabs['description']['title'] = __( 'Tasting notes' );
     return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_awards_product_tab' );
+function woo_awards_product_tab( $tabs ) {
+
+    // Adds the new tab
+
+    $tabs['test_tab'] = array(
+        'title' 	=> __( 'Awards', 'woocommerce' ),
+        'priority' 	=> 50,
+        'callback' 	=> 'woo_awards_product_tab_content'
+    );
+
+    return $tabs;
+
+}
+function woo_awards_product_tab_content() {
+
+    echo '<h2>Awards</h2>';
+    echo '<p>Here\'s your new product tab.</p>';
+
 }
