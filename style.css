@@ -191,6 +191,10 @@ footer .bc-info {
  * ----------------------------------------------------------------------------
  */
 
+main {
+    background: url('img/watermark.png') no-repeat 48px 32px;
+}
+
 .content {
     padding: 2em 0;
 }
