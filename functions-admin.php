@@ -21,7 +21,7 @@ function home_settings_data() {
 
     register_setting('home_settings_group', 'slider_img_1');
     register_setting('home_settings_group', 'slider_img_2');
-    register_setting('home_settings_group', 'slider_img_2');
+    register_setting('home_settings_group', 'slider_img_3');
 
     register_setting('home_settings_group', 'facebook_widget');
 

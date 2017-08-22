@@ -5,21 +5,31 @@
  */
 get_header(); ?>
 
-    <?php while (have_posts()) : the_post(); ?>
-    <?php if ( has_post_thumbnail() ) {
-        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-        <div class="banner" role="banner" style="background-image: url(<?php echo $thumbnail_src[0]; ?>);">
-    <?php } else { ?>
-        <div class="banner" role="banner">
-    <?php } ?>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
+    <div id="myCarousel" class="banner carousel slide" data-ride="carousel" role="banner">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-                </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="<?php echo esc_attr(get_option('slider_img_1')); ?>">
+            </div>
+
+            <div class="item">
+                <img src="<?php echo esc_attr(get_option('slider_img_2')); ?>">
+            </div>
+
+            <div class="item">
+                <img src="<?php echo esc_attr(get_option('slider_img_3')); ?>">
             </div>
         </div>
     </div>
+
+    <?php while (have_posts()) : the_post(); ?>
     <main id="main" class="main" role="main">
         <div id="content" class="content">
             <div class="container">

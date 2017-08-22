@@ -16,8 +16,8 @@ function wood_styles() {
 }
 
 function wood_scripts() {
-    wp_register_script( 'jquery-js', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), '2.2.4' );
-    wp_register_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '3.3.7', true );
+    wp_register_script( 'jquery-js', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array(), '2.2.4' );
+    wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.7', true );
     wp_register_script( 'global-js', get_template_directory_uri() . '/js/bc.js', array(), '1.0', true );
     wp_enqueue_script( 'jquery-js' );
     wp_enqueue_script( 'bootstrap-js' );

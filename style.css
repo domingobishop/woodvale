@@ -48,30 +48,6 @@ a:hover, a:focus {
 }
 
 /**
- * Hyphenation
- * ----------------------------------------------------------------------------
- */
-
-h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	word-break: keep-all;
-}
-.site-content article {
-	word-wrap: normal;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	hyphens: none;
-}
-.widget-area .widget {
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	hyphens: none;
-	word-wrap: normal;
-}
-/**
  * Nav
  * ----------------------------------------------------------------------------
  */
@@ -153,12 +129,21 @@ footer .bc-info {
 .banner {
 	background: url('img/bg.jpg') #e4eaea center center;
 	background-size: cover;
-	min-height: 360px;
+    min-height: 420px;
+    max-height: 420px;
+    overflow: hidden;
+    position: relative;
+}
+.banner img {
+    width: 100%;
+    height: auto;
+
+
 }
 .home-footer-banner {
 	background: url('img/home-footer.jpg') #e4eaea center center;
 	background-size: cover;
-	min-height: 360px;
+    min-height: 360px;
 }
 .promo-area {
 	padding: 1.6em 0;
