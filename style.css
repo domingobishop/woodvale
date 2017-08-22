@@ -216,7 +216,54 @@ footer .bc-info {
 	margin-bottom: 2em;
 }
 .page-of-posts h3 {
-	margin: 0;
+    margin: 0;
+}
+
+/**
+ * Woo
+ * ----------------------------------------------------------------------------
+ */
+
+.woocommerce #sidebar {
+    display: none !important;
+}
+
+.woocommerce .products ul, .woocommerce ul.products {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    margin: 0 3.3% 2.992em 0;
+    width: 30%;
+    padding: 1em;
+    background-color: #464646;
+}
+
+.woocommerce ul.products li.product a img {
+    float: left;
+    width: 26%;
+    margin: 0 0.5em 0.5em 0;
+
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+    color: #fff;
+}
+
+.woocommerce ul.products li.product .price {
+    color: #fff;
+}
+
+.woocommerce ul.products li.product .button {
+    width: 100%;
+    text-align: center;
+    clear: both;
 }
 
  /**

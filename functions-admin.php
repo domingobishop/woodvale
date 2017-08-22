@@ -19,6 +19,10 @@ function home_settings_data() {
     register_setting('home_settings_group', 'wood_tel');
     register_setting('home_settings_group', 'wood_email');
 
+    register_setting('home_settings_group', 'slider_img_1');
+    register_setting('home_settings_group', 'slider_img_2');
+    register_setting('home_settings_group', 'slider_img_2');
+
     register_setting('home_settings_group', 'facebook_widget');
 
     for ( $i=1 ; $i<=3 ; $i++ ) {
@@ -67,6 +71,22 @@ function home_settings_page()
             </table>
             <?php submit_button(); ?>
             <table class="form-table">
+                <h3>Homapage image slider</h3>
+                <tr valign="top">
+                    <th scope="row"><label for="slider_img_1">Image 1</label></th>
+                    <td><input type="text" name="slider_img_1" value="<?php echo esc_attr( get_option('slider_img_1') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="slider_img_2">Image 2</label></th>
+                    <td><input type="text" name="slider_img_2" value="<?php echo esc_attr( get_option('slider_img_2') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="slider_img_3">Image 3</label></th>
+                    <td><input type="text" name="slider_img_3" value="<?php echo esc_attr( get_option('slider_img_3') ); ?>" /></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+            <table class="form-table">
                 <h3>Promotional area</h3>
                 <?php for ( $i=1 ; $i<=3 ; $i++ ) { ?>
                 <tr valign="top">
@@ -75,7 +95,7 @@ function home_settings_page()
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="promo_img_<?php echo $i; ?>">Image</label></th>
-                    <td><input type="text" name="promo_img_<?php echo $i; ?>" value="<?php echo esc_attr( get_option('promo_img_'.$i) ); ?>" /></td>
+                    <td><input type="text" name="promo_img_<?php echo $i; ?>" value="<?php echo esc_attr( get_option('promo_img_'.$i) ); ?>" /><br>Image size 480px x 480px</td>
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="promo_txt_<?php echo $i; ?>">Text</label></th>

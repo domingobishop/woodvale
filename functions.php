@@ -3,6 +3,7 @@
 // Included functions
 include 'functions-admin.php';
 include 'functions-global.php';
+include 'functions-woo.php';
 
 // add_action
 add_action( 'wp_enqueue_scripts', 'wood_styles' );
