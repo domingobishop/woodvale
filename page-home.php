@@ -5,30 +5,18 @@
  */
 get_header(); ?>
 
-    <div id="myCarousel" class="banner carousel slide" data-ride="carousel" role="banner">
-        <!-- Indicators -->
+    <div id="wood_carousel" class="banner carousel slide" data-ride="carousel" role="banner">
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#wood_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#wood_carousel" data-slide-to="1"></li>
+            <li data-target="#wood_carousel" data-slide-to="2"></li>
         </ol>
-
-        <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <img src="<?php echo esc_attr(get_option('slider_img_1')); ?>">
-            </div>
-
-            <div class="item">
-                <img src="<?php echo esc_attr(get_option('slider_img_2')); ?>">
-            </div>
-
-            <div class="item">
-                <img src="<?php echo esc_attr(get_option('slider_img_3')); ?>">
-            </div>
+            <div class="item active" style="background-image: url(<?php echo esc_attr(get_option('slider_img_1')); ?>);"></div>
+            <div class="item" style="background-image: url(<?php echo esc_attr(get_option('slider_img_2')); ?>);"></div>
+            <div class="item" style="background-image: url(<?php echo esc_attr(get_option('slider_img_3')); ?>);"></div>
         </div>
     </div>
-
     <?php while (have_posts()) : the_post(); ?>
     <main id="main" class="main" role="main">
         <div id="content" class="content">
@@ -69,7 +57,6 @@ get_header(); ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-
                 </div>
             </div>
         </div>

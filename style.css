@@ -127,16 +127,15 @@ footer .bc-info {
  */
 
 .banner {
-	background: url('img/bg.jpg') #e4eaea center center;
-	background-size: cover;
-    min-height: 420px;
-    max-height: 420px;
+	background-color: #e4eaea;
+    height: 420px;
     overflow: hidden;
 }
-.banner img {
+.banner .item {
+    background-size: cover;
+    background-position: center center;
     width: 100%;
-    min-width: 100%;
-    height: auto;
+    height: 420px;
 }
 .home-footer-banner {
 	background: url('img/home-footer.jpg') #e4eaea center center;
