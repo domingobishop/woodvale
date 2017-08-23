@@ -62,7 +62,7 @@ function woo_awards_product_tab($tabs)
 {
 
     $tabs['test_tab'] = array(
-        'title' => __('Awards', 'woocommerce'),
+        'title' => __('Awards and accolades', 'woocommerce'),
         'priority' => 50,
         'callback' => 'woo_awards_product_tab_content'
     );
@@ -73,9 +73,10 @@ function woo_awards_product_tab($tabs)
 
 function woo_awards_product_tab_content()
 {
+    global $post;
 
-    echo '<h2>Awards</h2>';
-    echo '<p>Here\'s your new product tab.</p>';
+    echo '<h2>Awards and accolades</h2>';
+    echo get_post_meta( $post->ID, 'wood_awards', true );
 
 }
 
@@ -86,8 +87,41 @@ function bottle_thumbnail()
     function bottle_placeholder_img_src($src)
     {
         $dir = get_template_directory_uri();
-        $src = $dir . '/img/bottle-thumb.gif';
+        $src = $dir . '/img/bottle-thumb.png';
 
         return $src;
     }
+}
+
+add_action( 'woocommerce_product_options_general_product_data', 'wood_custom_fields' );
+add_action( 'woocommerce_process_product_meta', 'wood_custom_fields_save' );
+
+// http://www.remicorson.com/mastering-woocommerce-products-custom-fields/
+function wood_custom_fields() {
+
+    global $woocommerce, $post;
+
+    echo '<div class="options_group">';
+
+    // Awards
+    woocommerce_wp_textarea_input(
+        array(
+            'id'          => 'wood_awards',
+            'label'       => __( 'Awards and accolades', 'woocommerce' ),
+            'placeholder' => '',
+            'description' => __( '', 'woocommerce' )
+        )
+    );
+
+    echo '</div>';
+
+}
+
+function wood_custom_fields_save( $post_id ){
+
+    // Awards
+    $woocommerce_textarea = $_POST['wood_awards'];
+    if( !empty( $woocommerce_textarea ) )
+        update_post_meta( $post_id, 'wood_awards', esc_html( $woocommerce_textarea ) );
+
 }
