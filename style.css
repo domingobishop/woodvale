@@ -117,8 +117,8 @@ footer ul {
 	list-style-type: none;
 	padding: 0;
 }
-footer .bc-info {
-	padding: 1em;
+footer .facebook-wdiget {
+    min-height: 560px;
 }
 
 /**

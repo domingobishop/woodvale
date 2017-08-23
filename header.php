@@ -16,6 +16,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php $facebook_js = get_option('facebook_js_widget');
+if ($facebook_js) {
+    echo '<!-- Facebook widget JS -->';
+    echo $facebook_js;
+} ?>
     <header id="head" class="head">
 
         <div class="branding">
@@ -28,12 +33,18 @@
                 </div>
                 <div class="col-sm-6 text-right contact">
                     <p>
-                        <a href="<?php echo esc_attr(get_option('wood_facebook')); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
-                        <a href="<?php echo esc_attr(get_option('wood_instagram')); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                        <?php $facebook = get_option('wood_facebook'); if ($facebook) { ?>
+                        <a href="<?php echo esc_attr($facebook); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/facebook.png"></a>
+                        <?php } ?>
+                        <?php $instagram = get_option('wood_instagram'); if ($instagram) { ?>
+                        <a href="<?php echo esc_attr($instagram); ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/instagram.png"></a>
+                        <?php } ?>
                     </p>
+                    <?php $tel = get_option('wood_tel'); if ($tel) { ?>
                     <h3>
-                        <a href="tel:<?php echo esc_attr(get_option('wood_tel')); ?>"><?php echo esc_attr(get_option('wood_tel')); ?></a>
+                        <a href="tel:<?php echo esc_attr($tel); ?>"><?php echo esc_attr($tel); ?></a>
                     </h3>
+                    <?php } ?>
                 </div>
             </div>
         </div>

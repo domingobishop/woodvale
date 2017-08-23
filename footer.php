@@ -1,4 +1,4 @@
-<footer id="footer" class="bc-footer">
+<footer id="footer" class="ooter">
     <div class="container">
         <div class="row">
             <div class="col-md-8 site-info">
@@ -22,9 +22,12 @@
                     <small>Website by <a href="http://creatistic.com.au/" target="_blank">Creatistic</a></small>
                 </p>
             </div>
-            <div class="col-md-4 facebook-wdiget">
-                <?php echo get_option('facebook_widget'); ?>
-            </div>
+                <?php $facebook_html = get_option('facebook_widget');
+                if ($facebook_html) {
+                    echo '<div class="col-md-4"><div class="facebook-wdiget clearfix">';
+                    echo $facebook_html;
+                    echo '</div></div>';
+                } ?>
         </div>
     </div>
 </footer>
