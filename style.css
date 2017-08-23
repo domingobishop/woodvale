@@ -1,10 +1,10 @@
 /*
 Theme Name:     Woodvale 2017
-Theme URI:      http://chrisbishop.me.uk/resources/
+Theme URI:      https://github.com/domingobishop/woodvale
 Author:         Chris Bishop
-Description:    A 'blank canvas' with Bootstrap for developing WordPress themes. 
-Author URI:     http://chrisbishop.me.uk/
-Version:        0.2.0
+Description:    WordPress theme for Woodvale Wines.
+Author URI:     https://github.com/domingobishop/
+Version:        0.1.0
 License:		Creative Commons Attribution-Share Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/. Feel free to make any changes.
 Text Domain:    blankcanvas
 */
@@ -15,18 +15,24 @@ Text Domain:    blankcanvas
  */
  
 body {
-	font-family: "Open Sans", Helvetica, Arial, sans-serif, sansserif;
-	/*The weights are 300 (light), 400 (normal), 600 (semibold), and 700 (bold) and the only acceptable CSS keyword is "normal". */
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
 	text-rendering: optimizeLegibility;
-	color: #444;
+	color: #222;
 	font-size: 18px;
 	line-height: 1.6;
-}
-html, button, input, select, textarea {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif, sansserif;
+	background: url('img/page-bg.gif') #f1eee5;
 }
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Slab', serif;
     font-weight: 700;
+}
+h1, h2, h3  {
+	margin-top: 1.6em;
+	margin-bottom: 1.2em;
+}
+p {
+	margin: 0 0 1.2em;
 }
 a {
 	color: #337ab7;
@@ -42,30 +48,6 @@ a:hover, a:focus {
 }
 
 /**
- * Hyphenation
- * ----------------------------------------------------------------------------
- */
-
-h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	word-break: keep-all;
-}
-.site-content article {
-	word-wrap: normal;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	hyphens: none;
-}
-.widget-area .widget {
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	hyphens: none;
-	word-wrap: normal;
-}
-/**
  * Nav
  * ----------------------------------------------------------------------------
  */
@@ -76,15 +58,15 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 	font-weight: 500;
 	border-radius: 0;
 	border: none;
-	background-color: #fff;
-    box-shadow: 0px 5px 14px #444;
 }
 .navbar-nav>li>a {
 	padding-bottom: 15.5px;
 }
+.navbar-default {
+	background-color: transparent;
+}
 .navbar-default .navbar-nav > li > a {
     color: #000;
-	border-bottom: solid 4px #fff;
 }
 .navbar-default .navbar-brand {
     font-weight: 700;
@@ -98,18 +80,29 @@ h1, h2, h3, h4, p, ul, li, ol, dl, blockquote, .post-statement, .statement {
 }
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-	border-bottom: solid 4px #3b94d9;
+
 }
 .navbar-default .navbar-nav > li.current-menu-item > a {
-	border-bottom: solid 4px #3b94d9;
+
 }
 
 /**
  * Header
  * ----------------------------------------------------------------------------
  */
-
-
+.branding {
+	padding: 1em 0;
+}
+.branding .logo a img {
+	max-height: 100px;
+}
+.branding .contact img {
+    width: 36px;
+    height: auto;
+}
+.branding h3 {
+	margin: 0;
+}
 
 /**
  * Footer
@@ -133,22 +126,27 @@ footer .bc-info {
  * ----------------------------------------------------------------------------
  */
 
-.bc-banner {
-	background: url('img/bg.jpg') #e4eaea center center;
+.banner {
+	background-color: #e4eaea;
+    height: 420px;
+    overflow: hidden;
+}
+.banner .item {
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 420px;
+}
+.home-footer-banner {
+	background: url('img/home-footer.jpg') #e4eaea center center;
 	background-size: cover;
-	min-height: 180px;
+    min-height: 360px;
 }
-.banner-title {
-	margin: 2em 0 3em;
-	padding: 0.5em 1em;
-	background: rgba(255,255,255,0.8);
-	border-radius: 3px;
+.promo-area {
+	padding: 1.6em 0;
 }
-.cat-nav {
-	margin-bottom: 1em;
-}
-.cat-nav .btn {
-	margin-bottom: 0.5em;
+.promo-img {
+	padding: 1.3em;
 }
 .loop-wrap article {
     margin-bottom: 2em;
@@ -165,8 +163,12 @@ footer .bc-info {
     color: #95a5a6;
     background-color: #fff;
 }
+.pager ul {
+	margin: 0;
+	padding: 0;
+}
 .pager li>a, .pager li>span {
-	background-color: #95a5a6;
+	background-color: #444;
 	border-radius: 3px;
 	border: none;
 	color: #fff;
@@ -189,8 +191,124 @@ footer .bc-info {
  * ----------------------------------------------------------------------------
  */
 
-.bc-content {
+main {
+    background: url('img/watermark.png') no-repeat 48px 32px;
+}
+
+.content {
     padding: 2em 0;
+}
+.page-of-posts article {
+	margin-bottom: 2em;
+}
+.page-of-posts h3 {
+    margin: 0;
+}
+
+/**
+ * Woo
+ * ----------------------------------------------------------------------------
+ */
+
+.woocommerce #sidebar {
+    display: none !important;
+}
+
+.woocommerce .products ul, .woocommerce ul.products {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    margin: 0 3.3% 2.992em 0;
+    width: 30%;
+    padding: 1em;
+    background-color: #464646;
+}
+
+.woocommerce ul.products li.product a img {
+    float: left;
+    width: 26%;
+    margin: 0 0.5em 0.5em 0;
+
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+    color: #fff;
+}
+
+.woocommerce ul.products li.product .price {
+    color: #fff;
+}
+
+.woocommerce ul.products li.product .button {
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+    width: 12%;
+}
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+    width: 80%;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    margin: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+    border-bottom: 3px solid #d3ced2;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after, .woocommerce div.product .woocommerce-tabs ul.tabs li::before {
+    border: 3px solid #d3ced2;
+    bottom: -6px;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    border: 3px solid #d3ced2;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+    border: 3px solid #d3ced2;
+    padding: 1em;
+    border-top-color: transparent;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+    background-color: #444 !important;
+}
+
+.woocommerce #content div.product .woocommerce-tabs, .woocommerce div.product .woocommerce-tabs, .woocommerce-page #content div.product .woocommerce-tabs, .woocommerce-page div.product .woocommerce-tabs {
+    float: right;
+    width: 80%;
+    clear: none;
+}
+
+.woocommerce .label {
+    color: #222;
+    font-size: 100%;
+}
+
+.woocommerce .quantity .qty {
+    height: 40px;
+}
+
+.woocommerce div.product form.cart .variations select {
+    max-width: 70%;
+    min-width: 60%;
 }
 
  /**
