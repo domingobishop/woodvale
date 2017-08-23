@@ -24,6 +24,7 @@ add_action('init', 'bottle_thumbnail');
 add_filter('woocommerce_related_products_args', 'wc_remove_related_products', 10);
 add_filter('woocommerce_product_tabs', 'woo_remove_reviews_tab', 98);
 add_filter('woocommerce_product_tabs', 'woo_rename_tabs', 98);
+add_filter( 'woocommerce_product_description_heading', 'wc_change_product_description_tab_heading', 10, 1 );
 add_filter('woocommerce_product_tabs', 'woo_awards_product_tab');
 
 function wood_wrapper_start()
@@ -58,10 +59,15 @@ function woo_rename_tabs($tabs)
     return $tabs;
 }
 
+function wc_change_product_description_tab_heading( $title ) {
+
+    return __('Tasting notes');
+}
+
 function woo_awards_product_tab($tabs)
 {
 
-    $tabs['test_tab'] = array(
+    $tabs['awards_tab'] = array(
         'title' => __('Awards and accolades', 'woocommerce'),
         'priority' => 50,
         'callback' => 'woo_awards_product_tab_content'
@@ -124,4 +130,26 @@ function wood_custom_fields_save( $post_id ){
     if( !empty( $woocommerce_textarea ) )
         update_post_meta( $post_id, 'wood_awards', esc_html( $woocommerce_textarea ) );
 
+}
+
+add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+
+function custom_variation_price( $price, $product ) {
+
+    $price = '';
+    $price .= woocommerce_price($product->get_price());
+
+    return $price;
+}
+
+function remove_loop_button(){
+    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','remove_loop_button');
+
+add_action('woocommerce_after_shop_loop_item','replace_add_to_cart');
+function replace_add_to_cart() {
+    global $product;
+    $link = $product->get_permalink();
+    echo do_shortcode('<a rel="nofollow" href="' . esc_attr($link) . '" class="button">Read more</a>');
 }
