@@ -133,7 +133,7 @@ footer .bc-info {
 }
 .banner .item {
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     width: 100%;
     height: 420px;
 }
@@ -229,6 +229,7 @@ main {
     width: 30%;
     padding: 1em;
     background-color: #464646;
+    border-radius: 3px;
 }
 
 .woocommerce ul.products li.product a img {
