@@ -29,11 +29,12 @@ add_filter('woocommerce_product_tabs', 'woo_awards_product_tab');
 
 function wood_wrapper_start()
 {
-    echo '<main id="main" class="main" role="main">
-        <div id="content" class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">';
+    echo '<main id="main" class="main" role="main">';
+    echo '<div id="content" class="content"><div class="container"><div class="row">';
+    echo '<nav class="shop"><div class="col-md-10 col-md-offset-1">';
+    wp_nav_menu(array('menu' => 'shop', 'items_wrap' => '<ul class="nav navbar-nav navbar-right" role="menu">%3$s</ul>', 'container' => false));
+    echo '</div></nav>';
+    echo '<div class="col-md-10 col-md-offset-1">';
 }
 
 function wood_wrapper_end()
