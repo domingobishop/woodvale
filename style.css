@@ -15,16 +15,16 @@ Text Domain:    blankcanvas
  */
  
 body {
-	font-family: 'Roboto Slab', serif;
+    font-family: 'Cormorant Infant', serif;
 	font-weight: 400;
 	text-rendering: optimizeLegibility;
 	color: #222;
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 1.6;
 	background: url('img/page-bg.gif') #f1eee5;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Roboto Slab', serif;
+    font-family: 'Cormorant Infant', serif;
     font-weight: 700;
 }
 h1, h2, h3  {
