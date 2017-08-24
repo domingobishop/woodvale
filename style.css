@@ -111,7 +111,7 @@ a:hover, a:focus {
  
 footer {
 	padding: 1em 0;
-	background-color: #e4eaea;
+	background-color: #ebe9eb;
 }
 footer ul {
 	list-style-type: none;
@@ -139,7 +139,8 @@ footer .facebook-wdiget {
 }
 .home-footer-banner {
 	background: url('img/home-footer.jpg') #e4eaea center center;
-	background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 360px;
 }
 .promo-area {
@@ -209,6 +210,10 @@ main {
  * Woo
  * ----------------------------------------------------------------------------
  */
+
+.shop .nav>li>a:hover, .nav>li>a:focus {
+    background-color: transparent;
+}
 
 .woocommerce #sidebar {
     display: none !important;
