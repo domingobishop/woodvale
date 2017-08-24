@@ -41,7 +41,7 @@ get_header(); ?>
                     <div class="col-md-4">
                         <a href="<?php echo esc_attr(get_option('promo_url_'.$i)); ?>">
                             <div class="promo-img">
-                                <img src="<?php echo esc_attr(get_option('promo_img_'.$i)); ?>" class="img-responsive img-circle">
+                                <img src="<?php echo esc_attr(get_option('promo_img_'.$i)); ?>" class="img-responsive">
                             </div>
                             <div class="promo-text text-center">
                                 <h3><?php echo esc_attr(get_option('promo_txt_'.$i)); ?></h3>
