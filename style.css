@@ -211,7 +211,7 @@ main {
  * ----------------------------------------------------------------------------
  */
 
-.shop .nav>li>a:hover, .nav>li>a:focus {
+.shop-nav .nav>li>a:hover, .nav>li>a:focus {
     background-color: transparent;
 }
 
