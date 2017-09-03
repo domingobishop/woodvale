@@ -58,6 +58,7 @@ a:hover, a:focus {
 	font-weight: 500;
 	border-radius: 0;
 	border: none;
+    border-top: 3px solid #d3ced2;
 }
 .navbar-nav>li>a {
 	padding-bottom: 15.5px;
@@ -94,7 +95,7 @@ a:hover, a:focus {
 	padding: 1em 0;
 }
 .branding .logo a img {
-	max-height: 100px;
+	max-height: 80px;
 }
 .branding .contact img {
     width: 36px;
@@ -102,6 +103,17 @@ a:hover, a:focus {
 }
 .branding h3 {
 	margin: 0;
+}
+.fixed {
+    position:fixed;
+    top:0;
+    width: 100%;
+    background: url('img/page-bg.gif') #f1eee5;
+    box-shadow: 0 2px 5px #ddd;
+    z-index: 9999;
+}
+.main-fixed-menu {
+    margin-top: 60px;
 }
 
 /**
