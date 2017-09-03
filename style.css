@@ -35,10 +35,10 @@ p {
 	margin: 0 0 1.2em;
 }
 a {
-	color: #337ab7;
+	color: #77a464;
 }
 a:hover, a:focus {
-	color: #3b94d9;
+	color: #3D7027;
 }
 .entry-content a {
 	text-decoration: underline;
@@ -76,7 +76,7 @@ a:hover, a:focus {
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-	color: #3b94d9;
+	color: #3D7027;
 }
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
@@ -250,6 +250,7 @@ main {
 
 .woocommerce ul.products li.product .price {
     color: #fff;
+    font-size: 1.25em;
 }
 
 .woocommerce ul.products li.product .button {
@@ -309,12 +310,70 @@ main {
 }
 
 .woocommerce .quantity .qty {
-    height: 40px;
+    height: 44px;
 }
 
 .woocommerce div.product form.cart .variations select {
     max-width: 70%;
     min-width: 60%;
+}
+
+.woocommerce ul.products table.variations {
+    width: 100%;
+}
+.woocommerce ul.products .variations:before {
+    content: " ";
+    display: table;
+}
+.woocommerce ul.products table.variations td {
+    width: 100%;
+    display: block;
+}
+.woocommerce ul.products li.product label {
+    color: #fff;
+}
+.woocommerce ul.products li.product .label {
+    text-align: left;
+    padding-left: 0;
+}
+.woocommerce ul.products li.product .button {
+    text-align: center;
+    font-size: 100%;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #515151;
+    background-color: #ebe9eb !important;
+    border: 0;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+.woocommerce ul.products li.product .variations_button .button {
+    width: 67%;
+}
+.woocommerce ul.products li.product .button {
+    width: 100%;
+}
+.woocommerce ul.products li.product .quantity {
+    display: inline-block;
+    width: 30%;
+}
+.woocommerce ul.products li.product select {
+    width: 100%;
+}
+.woocommerce ul.products .cart:before {
+    content: " ";
+    display: table;
 }
 
  /**

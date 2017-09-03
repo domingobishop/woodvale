@@ -148,9 +148,16 @@ function remove_loop_button(){
 }
 add_action('init','remove_loop_button');
 
-add_action('woocommerce_after_shop_loop_item','replace_add_to_cart');
+/*add_action('woocommerce_after_shop_loop_item','replace_add_to_cart');
 function replace_add_to_cart() {
     global $product;
     $link = $product->get_permalink();
     echo do_shortcode('<a rel="nofollow" href="' . esc_attr($link) . '" class="button">Read more</a>');
+}*/
+
+add_action( 'woocommerce_before_shop_loop', 'handsome_bearded_guy_select_variations' );
+
+function handsome_bearded_guy_select_variations() {
+    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+    add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_single_add_to_cart', 30 );
 }
