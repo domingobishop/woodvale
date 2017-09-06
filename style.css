@@ -227,6 +227,11 @@ main {
     background-color: transparent;
 }
 
+.woocommerce h1 {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
 .woocommerce #sidebar {
     display: none !important;
 }
@@ -247,6 +252,16 @@ main {
     padding: 1em;
     background-color: #464646;
     border-radius: 3px;
+}
+
+.woocommerce ul.products li.product a {
+    display: block;
+}
+
+.woocommerce ul.products li.product a:after, .woocommerce ul.products li.product a:before {
+    content: " ";
+    display: table;
+    clear: both;
 }
 
 .woocommerce ul.products li.product a img {
@@ -321,32 +336,14 @@ main {
     font-size: 100%;
 }
 
-.woocommerce .quantity .qty {
-    height: 44px;
+.woocommerce ul.products li.product .quantity {
+    display: none;
 }
-
-.woocommerce div.product form.cart .variations select {
-    max-width: 70%;
-    min-width: 60%;
+.woocommerce ul.products li.product table.variations, .woocommerce ul.products li.product table.variations select {
+    width: 100%
 }
-
-.woocommerce ul.products table.variations {
-    width: 100%;
-}
-.woocommerce ul.products .variations:before {
-    content: " ";
-    display: table;
-}
-.woocommerce ul.products table.variations td {
-    width: 100%;
-    display: block;
-}
-.woocommerce ul.products li.product label {
-    color: #fff;
-}
-.woocommerce ul.products li.product .label {
-    text-align: left;
-    padding-left: 0;
+.woocommerce ul.products li.product table.variations select {
+    margin-bottom: 7px;
 }
 .woocommerce ul.products li.product .button {
     text-align: center;
@@ -370,23 +367,7 @@ main {
     box-shadow: none;
     text-shadow: none;
 }
-.woocommerce ul.products li.product .variations_button .button {
-    width: 67%;
-}
-.woocommerce ul.products li.product .button {
-    width: 100%;
-}
-.woocommerce ul.products li.product .quantity {
-    display: inline-block;
-    width: 30%;
-}
-.woocommerce ul.products li.product select {
-    width: 100%;
-}
-.woocommerce ul.products .cart:before {
-    content: " ";
-    display: table;
-}
+
 
  /**
  * Images
