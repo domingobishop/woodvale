@@ -153,7 +153,9 @@ function replace_add_to_cart() {
     echo do_shortcode('<a rel="nofollow" href="' . esc_attr($link) . '" class="button">Read more</a>');
 }*/
 
-/*add_action( 'woocommerce_before_shop_loop', 'handsome_bearded_guy_select_variations' );
+/*
+ * // https://www.thathandsomebeardedguy.com/allow-customers-to-select-variations-on-the-shop-page/
+ * add_action( 'woocommerce_before_shop_loop', 'handsome_bearded_guy_select_variations' );
 
 function handsome_bearded_guy_select_variations() {
     remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );

@@ -78,3 +78,12 @@ function wood_wp_title( $title, $sep ) {
 
     return $title;
 }
+
+function apply_https( $url ) {
+    if (strpos(get_site_url(), 'https') !== false) {
+        $new = str_replace('http:','https:', $url);
+        return $new;
+    } else {
+        return $url;
+    }
+}
