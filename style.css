@@ -161,6 +161,9 @@ footer .facebook-wdiget {
 .promo-img {
 	padding: 1.3em;
 }
+.promo-img img {
+    border-radius: 5px;
+}
 .loop-wrap article {
     margin-bottom: 2em;
 }
