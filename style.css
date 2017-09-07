@@ -379,24 +379,24 @@ main {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 1.6em;
 }
 .entry-content img.alignright, .entry-content .wp-caption.alignright {
-  margin-right: 0px;
+  margin-right: 0;
   float: right;
 }
 .entry-content img.alignnone  {
     margin: 1.6em 0;
 }
 .wp-caption.alignright, img.alignright {
-	margin: 5px 0 5px 20px;
+    margin: 5px 0 1.6em 1.6em;
 }
 .entry-content img.alignleft, .entry-content .wp-caption.alignleft {
-  margin-left: 0px;
+  margin-left: 0;
   float: left;
 }
 .wp-caption.alignleft, img.alignleft {
-	margin: 5px 20px 5px 0px;
+	margin: 5px 1.6em 1.6em 0;
 }
 .wp-caption .wp-caption-text, .entry-caption, .gallery-caption {
   color: #220e10;
