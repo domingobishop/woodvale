@@ -339,39 +339,6 @@ main {
     font-size: 100%;
 }
 
-.woocommerce ul.products li.product .quantity {
-    display: none;
-}
-.woocommerce ul.products li.product table.variations, .woocommerce ul.products li.product table.variations select {
-    width: 100%
-}
-.woocommerce ul.products li.product table.variations select {
-    margin-bottom: 7px;
-}
-.woocommerce ul.products li.product .button {
-    text-align: center;
-    font-size: 100%;
-    margin: 0;
-    line-height: 1;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    overflow: visible;
-    padding: .618em 1em;
-    font-weight: 700;
-    border-radius: 3px;
-    left: auto;
-    color: #515151;
-    background-color: #ebe9eb !important;
-    border: 0;
-    white-space: nowrap;
-    display: inline-block;
-    background-image: none;
-    box-shadow: none;
-    text-shadow: none;
-}
-
-
  /**
  * Images
  * ----------------------------------------------------------------------------
