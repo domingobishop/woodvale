@@ -56,6 +56,10 @@ if ($facebook_js) {
                             data-target="#navbar-collapse-1"><span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                     </button>
+                    <a class="navbar-brand" href="<?php bloginfo('siteurl'); ?>/"
+                       title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/logo-sm.png" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" class="img-responsive">
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <?php wp_nav_menu(array('menu' => 'primary', 'items_wrap' => '<ul class="nav navbar-nav navbar-right" role="menu">%3$s</ul>', 'container' => false)); ?>

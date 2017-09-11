@@ -86,6 +86,16 @@ a:hover, a:focus {
 .navbar-default .navbar-nav > li.current-menu-item > a {
 
 }
+.navbar-default .navbar-brand {
+    display: none;
+    padding: 5px;
+}
+.navbar-default .navbar-brand img {
+    width: 50px;
+}
+.navbar-brand-display {
+    display: block !important;
+}
 
 /**
  * Header
