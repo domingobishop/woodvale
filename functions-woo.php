@@ -130,3 +130,45 @@ function wood_custom_fields_save( $post_id ){
         update_post_meta( $post_id, 'wood_awards', $woocommerce_textarea );
 
 }
+
+// Set minimum quantity per product before checking out
+add_action( 'woocommerce_check_cart_items', 'woo_set_min_total' );
+function woo_set_min_total() {
+    $total_quantity = 0;
+    // Only run in the Cart or Checkout pages
+    if( is_cart() || is_checkout() ) {
+
+        global $woocommerce, $product;
+        $i=0;
+        //$prod_id_array = array();
+        //loop through all cart products
+        foreach ( $woocommerce->cart->cart_contents as $product ) :
+
+            // Set minimum product cart total
+            $minimum_cart_product_total = 6;
+
+            // See if any product is from the bagel category or not
+            if ( has_term( 'wine', 'product_cat', $product['product_id'] ) ) :
+
+                $total_quantity += $product['quantity'];
+                //array_push($prod_id_array, $product['product_id']);
+            endif;
+
+        endforeach;
+
+        foreach ( $woocommerce->cart->cart_contents as $product ) :
+            if ( has_term( 'wine', 'product_cat', $product['product_id'] ) ) :
+                if( $total_quantity < $minimum_cart_product_total && $i == 0 ) {
+                    // Display our error message
+                    wc_add_notice( sprintf( '<strong>A Minimum of %s bottles are required before checking out.</strong>'
+                        . '<br />Current number of bottles in the cart: %s.',
+                        $minimum_cart_product_total,
+                        $total_quantity ),
+                        'error' );
+                }
+                $i++;
+            endif;
+        endforeach;
+    }
+
+}
