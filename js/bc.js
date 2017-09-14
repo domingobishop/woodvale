@@ -20,3 +20,15 @@ resize();
 window.onresize = function() {
     resize();
 };*/
+
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > 128) {
+        $('.navbar').addClass('fixed');
+        $('.main').addClass('main-fixed-menu');
+        $('.navbar-brand').addClass('navbar-brand-display');
+    } else {
+        $('.navbar').removeClass('fixed');
+        $('.main').removeClass('main-fixed-menu');
+        $('.navbar-brand').removeClass('navbar-brand-display');
+    }
+});
