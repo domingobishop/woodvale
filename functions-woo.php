@@ -15,11 +15,13 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 add_action('after_setup_theme', 'woocommerce_support');
 add_action('woocommerce_before_main_content', 'wood_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'wood_wrapper_end', 10);
 add_action('init', 'bottle_thumbnail');
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_single_excerpt', 10);
 
 add_filter('woocommerce_related_products_args', 'wc_remove_related_products', 10);
 add_filter('woocommerce_product_tabs', 'woo_remove_reviews_tab', 98);
