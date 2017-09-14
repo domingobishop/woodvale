@@ -7,7 +7,7 @@
 // Enqueue styles and scripts
 function wood_styles() {
     wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7', 'all' );
-    wp_register_style( 'bc-styles', get_template_directory_uri() . '/style.css', array(), 1.1, 'all' );
+    wp_register_style( 'bc-styles', get_template_directory_uri() . '/style.css', array(), 1.3, 'all' );
     wp_register_style( 'google-fonts',
         'https://fonts.googleapis.com/css?family=Cormorant+Infant:400,700', array(), 1.0, 'all' );
     wp_enqueue_style( 'bootstrap' );
