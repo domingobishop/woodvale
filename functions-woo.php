@@ -15,18 +15,22 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
 add_action('after_setup_theme', 'woocommerce_support');
 add_action('woocommerce_before_main_content', 'wood_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'wood_wrapper_end', 10);
 add_action('init', 'bottle_thumbnail');
-add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_single_excerpt', 10);
+add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_single_excerpt', 10);
+add_action('woocommerce_product_options_general_product_data', 'wood_custom_fields');
+add_action('woocommerce_process_product_meta', 'wood_custom_fields_save');
+add_action('woocommerce_check_cart_items', 'woo_set_min_total');
+add_action('woocommerce_before_cart_table', 'woo_add_continue_shopping_button_to_cart');
 
 add_filter('woocommerce_related_products_args', 'wc_remove_related_products', 10);
 add_filter('woocommerce_product_tabs', 'woo_remove_reviews_tab', 98);
 add_filter('woocommerce_product_tabs', 'woo_rename_tabs', 98);
-add_filter( 'woocommerce_product_description_heading', 'wc_change_product_description_tab_heading', 10, 1 );
+add_filter('woocommerce_product_description_heading', 'wc_change_product_description_tab_heading', 10, 1);
 add_filter('woocommerce_product_tabs', 'woo_awards_product_tab');
 
 function wood_wrapper_start()
@@ -42,6 +46,19 @@ function wood_wrapper_start()
 function wood_wrapper_end()
 {
     echo '</div></div></div></div></main>';
+}
+
+function bottle_thumbnail()
+{
+    add_filter('woocommerce_placeholder_img_src', 'bottle_placeholder_img_src');
+
+    function bottle_placeholder_img_src($src)
+    {
+        $dir = get_template_directory_uri();
+        $src = $dir . '/img/bottle-thumb.png';
+
+        return $src;
+    }
 }
 
 function wc_remove_related_products($args)
@@ -62,18 +79,21 @@ function woo_rename_tabs($tabs)
     return $tabs;
 }
 
-function wc_change_product_description_tab_heading( $title ) {
-
+function wc_change_product_description_tab_heading($title)
+{
     return __('Tasting notes');
 }
 
 function woo_awards_product_tab($tabs)
 {
-    $tabs['awards_tab'] = array(
-        'title' => __('Awards and accolades', 'woocommerce'),
-        'priority' => 50,
-        'callback' => 'woo_awards_product_tab_content'
-    );
+    global $post;
+    if (get_post_meta($post->ID, 'wood_awards', true)) {
+        $tabs['awards_tab'] = array(
+            'title' => __('Awards and accolades', 'woocommerce'),
+            'priority' => 50,
+            'callback' => 'woo_awards_product_tab_content'
+        );
+    }
 
     return $tabs;
 }
@@ -83,28 +103,13 @@ function woo_awards_product_tab_content()
     global $post;
 
     echo '<h2>Awards and accolades</h2>';
-    echo get_post_meta( $post->ID, 'wood_awards', true );
+    echo get_post_meta($post->ID, 'wood_awards', true);
 
 }
-
-function bottle_thumbnail()
-{
-    add_filter('woocommerce_placeholder_img_src', 'bottle_placeholder_img_src');
-
-    function bottle_placeholder_img_src($src)
-    {
-        $dir = get_template_directory_uri();
-        $src = $dir . '/img/bottle-thumb.png';
-
-        return $src;
-    }
-}
-
-add_action( 'woocommerce_product_options_general_product_data', 'wood_custom_fields' );
-add_action( 'woocommerce_process_product_meta', 'wood_custom_fields_save' );
 
 // http://www.remicorson.com/mastering-woocommerce-products-custom-fields/
-function wood_custom_fields() {
+function wood_custom_fields()
+{
 
     global $woocommerce, $post;
 
@@ -113,10 +118,10 @@ function wood_custom_fields() {
     // Awards
     woocommerce_wp_textarea_input(
         array(
-            'id'          => 'wood_awards',
-            'label'       => __( 'Awards and accolades', 'woocommerce' ),
+            'id' => 'wood_awards',
+            'label' => __('Awards and accolades', 'woocommerce'),
             'placeholder' => '',
-            'description' => __( '', 'woocommerce' )
+            'description' => __('', 'woocommerce')
         )
     );
 
@@ -124,33 +129,33 @@ function wood_custom_fields() {
 
 }
 
-function wood_custom_fields_save( $post_id ){
-
+function wood_custom_fields_save($post_id)
+{
     // Awards
     $woocommerce_textarea = $_POST['wood_awards'];
-    if( !empty( $woocommerce_textarea ) )
-        update_post_meta( $post_id, 'wood_awards', $woocommerce_textarea );
+    if (!empty($woocommerce_textarea))
+        update_post_meta($post_id, 'wood_awards', $woocommerce_textarea);
 
 }
 
 // Set minimum quantity per product before checking out
-add_action( 'woocommerce_check_cart_items', 'woo_set_min_total' );
-function woo_set_min_total() {
+function woo_set_min_total()
+{
     $total_quantity = 0;
     // Only run in the Cart or Checkout pages
-    if( is_cart() || is_checkout() ) {
+    if (is_cart() || is_checkout()) {
 
         global $woocommerce, $product;
-        $i=0;
+        $i = 0;
         //$prod_id_array = array();
         //loop through all cart products
-        foreach ( $woocommerce->cart->cart_contents as $product ) :
+        foreach ($woocommerce->cart->cart_contents as $product) :
 
             // Set minimum product cart total
             $minimum_cart_product_total = 6;
 
             // See if any product is from the bagel category or not
-            if ( has_term( 'wine', 'product_cat', $product['product_id'] ) ) :
+            if (has_term('wine', 'product_cat', $product['product_id'])) :
 
                 $total_quantity += $product['quantity'];
                 //array_push($prod_id_array, $product['product_id']);
@@ -158,15 +163,15 @@ function woo_set_min_total() {
 
         endforeach;
 
-        foreach ( $woocommerce->cart->cart_contents as $product ) :
-            if ( has_term( 'wine', 'product_cat', $product['product_id'] ) ) :
-                if( $total_quantity < $minimum_cart_product_total && $i == 0 ) {
+        foreach ($woocommerce->cart->cart_contents as $product) :
+            if (has_term('wine', 'product_cat', $product['product_id'])) :
+                if ($total_quantity < $minimum_cart_product_total && $i == 0) {
                     // Display our error message
-                    wc_add_notice( sprintf( '<strong>A Minimum of %s bottles are required before checking out.</strong>'
+                    wc_add_notice(sprintf('<strong>A Minimum of %s bottles are required before checking out.</strong>'
                         . '<br />Current number of bottles in the cart: %s.',
                         $minimum_cart_product_total,
-                        $total_quantity ),
-                        'error' );
+                        $total_quantity),
+                        'error');
                 }
                 $i++;
             endif;
@@ -175,11 +180,11 @@ function woo_set_min_total() {
 
 }
 
-add_action( 'woocommerce_before_cart_table', 'woo_add_continue_shopping_button_to_cart' );
-function woo_add_continue_shopping_button_to_cart() {
-    $shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
+function woo_add_continue_shopping_button_to_cart()
+{
+    $shop_page_url = get_permalink(woocommerce_get_page_id('shop'));
 
     echo '<div class="woocommerce-message">';
-    echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping →</a>';
+    echo ' <a href="' . $shop_page_url . '" class="button">Continue Shopping →</a>';
     echo '</div>';
 }
