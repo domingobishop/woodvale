@@ -47,6 +47,12 @@
                 </div>
                 <p>
                     Copyright © <?php echo date("Y"); ?> Woodvale Vintners<br>
+                    <?php $terms = get_option('wood_terms');
+                    if ($terms) {
+                        echo '<a href="'.$terms.'">';
+                        echo 'Terms and conditions';
+                        echo '</a><br>';
+                    } ?>
                     <small>Website by <a href="http://creatistic.com.au/" target="_blank">Creatistic</a></small>
                 </p>
             </div>
