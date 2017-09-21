@@ -260,6 +260,10 @@ main {
     display: none !important;
 }
 
+.woocommerce .woocommerce-products-header .page-description {
+    display: none;
+}
+
 .woocommerce .products ul, .woocommerce ul.products {
     display: -webkit-box;
     display: -webkit-flex;
@@ -362,6 +366,10 @@ main {
 
 .woocommerce .woocommerce-product-details__short-description p {
     color: #fff;
+}
+
+.woocommerce form .form-row .input-checkbox {
+    position: relative;
 }
 
 @media (max-width: 768px) {
