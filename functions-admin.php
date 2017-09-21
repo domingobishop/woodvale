@@ -18,6 +18,7 @@ function home_settings_data() {
     register_setting('home_settings_group', 'wood_address_2');
     register_setting('home_settings_group', 'wood_tel');
     register_setting('home_settings_group', 'wood_email');
+    register_setting('home_settings_group', 'wood_terms');
 
     register_setting('home_settings_group', 'slider_img_1');
     register_setting('home_settings_group', 'slider_img_2');
@@ -79,6 +80,10 @@ function home_settings_page()
                 <tr valign="top">
                     <th scope="row"><label for="wood_email">Email</label></th>
                     <td><input type="text" name="wood_email" value="<?php echo esc_attr( get_option('wood_email') ); ?>" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="wood_terms">Terms & Conditions page</label></th>
+                    <td><input type="text" name="wood_terms" value="<?php echo esc_attr( get_option('wood_terms') ); ?>" /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
