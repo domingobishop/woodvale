@@ -32,15 +32,16 @@ add_filter('woocommerce_product_tabs', 'woo_remove_reviews_tab', 98);
 add_filter('woocommerce_product_tabs', 'woo_rename_tabs', 98);
 add_filter('woocommerce_product_description_heading', 'wc_change_product_description_tab_heading', 10, 1);
 add_filter('woocommerce_product_tabs', 'woo_awards_product_tab');
+add_filter('woocommerce_short_description', 'woo_short_description', 10, 1);
 
 function wood_wrapper_start()
 {
     echo '<main id="main" class="main" role="main">';
     echo '<div id="content" class="content"><div class="container"><div class="row">';
-    echo '<nav class="shop-nav"><div class="col-md-10 col-md-offset-1">';
+    echo '<nav class="shop-nav"><div class="col-md-12">';
     wp_nav_menu(array('menu' => 'shop', 'items_wrap' => '<ul class="nav navbar-nav navbar-right" role="menu">%3$s</ul>', 'container' => false));
     echo '</div></nav>';
-    echo '<div class="col-md-10 col-md-offset-1">';
+    echo '<div class="col-md-12">';
 }
 
 function wood_wrapper_end()
@@ -147,6 +148,11 @@ function woo_set_min_total()
 
         global $woocommerce, $product;
         $i = 0;
+        foreach ($woocommerce->cart->cart_contents as $product) :
+            if (has_term('bundle', 'product_cat', $product['product_id'])) :
+                return;
+            endif;
+        endforeach;
         //$prod_id_array = array();
         //loop through all cart products
         foreach ($woocommerce->cart->cart_contents as $product) :
@@ -187,4 +193,15 @@ function woo_add_continue_shopping_button_to_cart()
     echo '<div class="woocommerce-message">';
     echo ' <a href="' . $shop_page_url . '" class="button">Continue Shopping →</a>';
     echo '</div>';
+}
+
+function woo_short_description($description)
+{
+    if (is_shop()) {
+        if (strlen($description) > 78) {
+            return '<p>'.trim(substr(wp_strip_all_tags($description), 0 , 78)).'... read&nbsp;more&nbsp;&#187;</p>';
+        } else {
+            return '<p>'.wp_strip_all_tags($description).' read&nbsp;more&nbsp;&#187;</p>';
+        }
+    }
 }
