@@ -12,8 +12,17 @@
                                     <?php the_title(); ?>
                                 </h1>
                             </div>
-                            <div class="entry-content">
-                                <?php the_content(); ?>
+                            <div class="entry-content row">
+                                <div class="col-md-8">
+                                    <?php the_content(); ?>
+                                </div>
+                                <div class="col-md-4">
+                                    <?php
+                                    if (has_post_thumbnail() && !post_password_required() && !is_attachment()) {
+                                        the_post_thumbnail('medium', array('class' => 'img-responsive'));
+                                    }
+                                    ?>
+                                </div>
                             </div>
                         </article>
                         <?php endwhile; ?>
