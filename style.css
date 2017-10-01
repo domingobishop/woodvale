@@ -241,6 +241,15 @@ main {
 .page-of-posts h3 {
     margin: 0;
 }
+.page-of-posts .entry-thumbnail {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin: 0 1.6em 1.6em 0;
+}
+.page-of-posts .no-img {
+    padding: 0 27px;
+}
 
 /**
  * Woo
