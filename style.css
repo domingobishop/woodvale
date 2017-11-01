@@ -456,6 +456,16 @@ main {
     padding: 1em;
     background: #eee;
 }
+@media (max-width: 480px) {
+    .entry-content img.alignright,
+    .entry-content img.alignleft,
+    .entry-content img.alignnone,
+    .entry-content img.aligncenter {
+        display: block;
+        margin: 1em auto;
+        float: none;
+    }
+}
 iframe {
     margin: 1.6em 0;
 }
