@@ -45,6 +45,12 @@
                     <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
                     <!--End mc_embed_signup-->
                 </div>
+                <div class="branding">
+                    <div class="logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/cvlogo.png"
+                             alt="Regional Development Australia Clare and Mid North" class="img-responsive">
+                    </div>
+                </div>
                 <p>
                     Copyright © <?php echo date("Y"); ?> Woodvale Vintners<br>
                     <?php $terms = get_option('wood_terms');

@@ -33,14 +33,29 @@ get_header(); ?>
                     ?>
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
-                            <article id="post-<?php the_ID(); ?>">
-                                <h3 class="entry-title">
-                                    <a href="<?php the_permalink(); ?>" rel="bookmark">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h3>
-                                <div class="entry-summary">
-                                    <?php echo excerpt(21); ?>
+                            <article id="post-<?php the_ID(); ?>" class="clearfix">
+                                <?php if (has_post_thumbnail() && !post_password_required() && !is_attachment()) { ?>
+                                    <div class="entry-thumbnail">
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                            <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
+                                        </a>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="entry-thumbnail">
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/img/watermark.png" class="no-img img-responsive">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                                <div class="entry-content">
+                                    <h3 class="entry-title">
+                                        <a href="<?php the_permalink(); ?>" rel="bookmark">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    </h3>
+                                    <div class="entry-summary">
+                                        <?php echo excerpt(21); ?>
+                                    </div>
                                 </div>
                             </article>
                         <?php endwhile; ?>

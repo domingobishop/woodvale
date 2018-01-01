@@ -241,6 +241,15 @@ main {
 .page-of-posts h3 {
     margin: 0;
 }
+.page-of-posts .entry-thumbnail {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin: 0 1.6em 1.6em 0;
+}
+.page-of-posts .no-img {
+    padding: 0 27px;
+}
 
 /**
  * Woo
@@ -446,6 +455,16 @@ main {
   font-weight: 300;
     padding: 1em;
     background: #eee;
+}
+@media (max-width: 480px) {
+    .entry-content img.alignright,
+    .entry-content img.alignleft,
+    .entry-content img.alignnone,
+    .entry-content img.aligncenter {
+        display: block;
+        margin: 1em auto;
+        float: none;
+    }
 }
 iframe {
     margin: 1.6em 0;

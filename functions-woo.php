@@ -134,8 +134,12 @@ function wood_custom_fields_save($post_id)
 {
     // Awards
     $woocommerce_textarea = $_POST['wood_awards'];
-    if (!empty($woocommerce_textarea))
+    if (!empty($woocommerce_textarea)) {
         update_post_meta($post_id, 'wood_awards', $woocommerce_textarea);
+    } else {
+        update_post_meta($post_id, 'wood_awards', '');
+    }
+
 
 }
 
