@@ -182,6 +182,13 @@ function woo_set_min_total()
                         $minimum_cart_product_total,
                         $total_quantity),
                         'error');
+                } elseif ($total_quantity % 6 != 0 && $i == 0) {
+                    // Display our error message
+                    wc_add_notice(sprintf('<strong>Note: For ease of shipping, mixed case orders must be in multiples of %s bottles (eg 6, 12, 18, etc.) before checking out.</strong>'
+                        . '<br />Current number of bottles in the cart: %s. Please modify your order.',
+                        $minimum_cart_product_total,
+                        $total_quantity),
+                        'error');
                 }
                 $i++;
             endif;
@@ -192,7 +199,7 @@ function woo_set_min_total()
 
 function woo_add_continue_shopping_button_to_cart()
 {
-    $shop_page_url = get_permalink(woocommerce_get_page_id('shop'));
+    $shop_page_url = get_permalink(wc_get_page_id('shop'));
 
     echo '<div class="woocommerce-message">';
     echo ' <a href="' . $shop_page_url . '" class="button">Continue Shopping →</a>';
