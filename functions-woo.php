@@ -152,11 +152,7 @@ function woo_set_min_total()
 
         global $woocommerce, $product;
         $i = 0;
-        foreach ($woocommerce->cart->cart_contents as $product) :
-            if (has_term('bundle', 'product_cat', $product['product_id'])) :
-                return;
-            endif;
-        endforeach;
+
         //$prod_id_array = array();
         //loop through all cart products
         foreach ($woocommerce->cart->cart_contents as $product) :
@@ -164,10 +160,17 @@ function woo_set_min_total()
             // Set minimum product cart total
             $minimum_cart_product_total = 6;
 
-            // See if any product is from the bagel category or not
+            // See if any product is from the wine category or not
             if (has_term('wine', 'product_cat', $product['product_id'])) :
 
                 $total_quantity += $product['quantity'];
+                //array_push($prod_id_array, $product['product_id']);
+            endif;
+
+            // See if any product is from the bundle (6 bottles) category or not
+            if (has_term('bundle', 'product_cat', $product['product_id'])) :
+
+                $total_quantity += $product['quantity'] * 6;
                 //array_push($prod_id_array, $product['product_id']);
             endif;
 
