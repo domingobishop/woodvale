@@ -152,11 +152,7 @@ function woo_set_min_total()
 
         global $woocommerce, $product;
         $i = 0;
-        foreach ($woocommerce->cart->cart_contents as $product) :
-            if (has_term('bundle', 'product_cat', $product['product_id'])) :
-                return;
-            endif;
-        endforeach;
+
         //$prod_id_array = array();
         //loop through all cart products
         foreach ($woocommerce->cart->cart_contents as $product) :
@@ -164,10 +160,17 @@ function woo_set_min_total()
             // Set minimum product cart total
             $minimum_cart_product_total = 6;
 
-            // See if any product is from the bagel category or not
+            // See if any product is from the wine category or not
             if (has_term('wine', 'product_cat', $product['product_id'])) :
 
                 $total_quantity += $product['quantity'];
+                //array_push($prod_id_array, $product['product_id']);
+            endif;
+
+            // See if any product is from the bundle (6 bottles) category or not
+            if (has_term('bundle', 'product_cat', $product['product_id'])) :
+
+                $total_quantity += $product['quantity'] * 6;
                 //array_push($prod_id_array, $product['product_id']);
             endif;
 
@@ -182,6 +185,13 @@ function woo_set_min_total()
                         $minimum_cart_product_total,
                         $total_quantity),
                         'error');
+                } elseif ($total_quantity % 6 != 0 && $i == 0) {
+                    // Display our error message
+                    wc_add_notice(sprintf('<strong>Note: For ease of shipping, mixed case orders must be in multiples of %s bottles (eg 6, 12, 18, etc.) before checking out.</strong>'
+                        . '<br />Current number of bottles in the cart: %s. Please modify your order.',
+                        $minimum_cart_product_total,
+                        $total_quantity),
+                        'error');
                 }
                 $i++;
             endif;
@@ -192,7 +202,7 @@ function woo_set_min_total()
 
 function woo_add_continue_shopping_button_to_cart()
 {
-    $shop_page_url = get_permalink(woocommerce_get_page_id('shop'));
+    $shop_page_url = get_permalink(wc_get_page_id('shop'));
 
     echo '<div class="woocommerce-message">';
     echo ' <a href="' . $shop_page_url . '" class="button">Continue Shopping →</a>';
